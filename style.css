@@ -1,0 +1,797 @@
+/* リセットCSSを追加 */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css');
+
+/* ボックスサイズを統一 */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    /* 1rem = 16px とする */
+    font-family: "Kaisei Tokumin", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    font-size: 1rem;
+    /* bodyのフォントサイズを設定 */
+}
+
+/* メインビジュアルを画面いっぱいに表示するスタイル */
+.main-visual {
+    width: 100vw;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.main-visual img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    /* coverを使用して自然にフィット */
+    object-position: center;
+    display: block;
+    /* 余分なスペースを防ぐ */
+}
+
+/* 予約ボタンのスタイル */
+.reservation-button {
+    background-color: #FB7777;
+    color: #000;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    padding: 20px 40px;
+    font-size: 6rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: block;
+    width: fit-content;
+    margin: 60px auto;
+
+    font-family: "Kaisei Tokumin", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.reservation-button:hover {
+    background-color: #ff8a80;
+    transform: scale(1.05);
+}
+
+/* 新たに追加したホットペッパー口コミリンクのスタイル */
+.hotpepper-review-link {
+    display: block;
+    text-align: left; /* 左寄せ */
+    margin-top: 10px;
+    font-size: 2rem;
+    color: #1a73e8;
+    text-decoration: underline;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.hotpepper-review-link:hover {
+    color: #1558b0;
+    transform: translateX(5px);
+}
+
+.map-container {
+    width: 100%;
+    height: 50%;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* 初めての方へセクションのスタイル */
+.h2-fitst,
+.h3-fitst,
+.eyeblow,
+.p-fitst {
+    text-align: center;
+    color: #000;
+    font-family: "Kaisei Tokumin", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.h2-fitst {
+    font-size: 7rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.p-fitst {
+    font-size: 4rem;
+    text-decoration: underline;
+    margin-bottom: 20px;
+}
+
+.h3-fitst {
+    font-size: 3rem;
+    color: #000;
+    display: block;
+    margin: 0 auto 10px;
+    padding-bottom: 5px;
+}
+
+.eyeblow {
+    font-size: 3rem;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+.photo {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.photo:hover {
+    transform: scale(1.05);
+}
+
+/* EAGLE金沢の魅力セクションのスタイル */
+.eagle-logo {
+    font-family: "Inspiration", cursive;
+    font-weight: 400;
+    font-style: normal;
+    color: #a2a06a;
+    font-size: 6rem;
+    margin-right: 10px;
+    text-decoration: underline;
+}
+
+.eagle-kanazawa-attraction h2 {
+    font-size: 7rem;
+    font-family: "Kaisei Opti", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #a2a06a;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.eagle-kanazawa-attraction h3 {
+    font-size: 4rem;
+    font-family: "Kaisei Opti", serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.eagle-kanazawa-attraction p {
+    font-size: 3rem;
+    line-height: 1.8;
+    color: #333;
+    font-family: "Kaisei Opti", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* ホットペッパー口コミリンクの追加スタイル（必要に応じて調整） */
+.hotpepper-review-link {
+    display: block;
+    text-align: left; /* 左寄せ */
+    margin-top: 10px;
+    font-size: 2rem;
+    color: #1a73e8;
+    text-decoration: underline;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.hotpepper-review-link:hover {
+    color: #1558b0;
+    transform: translateX(5px);
+}
+
+/* 好アクセスのロケーションセクションのスタイル */
+.eagle-kanazawa-access {
+    text-align: left;
+    padding: 20px;
+    margin: 20px 0;
+    width: 100%;
+}
+
+.eagle-kanazawa-access h3 {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: "Kaisei Opti", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.eagle-kanazawa-access p {
+    font-size: 3rem;
+    line-height: 1.8;
+    color: #333;
+    font-family: "Kaisei Opti", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.highlight-access {
+    color: #1a73e8;
+    font-weight: bold;
+}
+
+.map-text {
+    font-size: 6rem;
+}
+
+/* --- 以下、eyebrow-styles セクションのスタイル --- */
+
+/* --- Flexboxを使用したeyebrow-styles セクションのスタイル --- */
+
+/* 全体ラッパーのスタイル */
+.eagle-kanazawa-atmosphere-wrapper {
+    display: flex;
+    flex-direction: column;
+    /* セクションを縦に並べる */
+    gap: 40px;
+    /* セクション間のスペース */
+    max-width: 2000px;
+    /* 最大幅を設定 */
+    margin: 0 auto;
+    /* 中央揃え */
+    padding: 20px;
+}
+
+/* 各セクションの基本スタイル */
+.eyebrow-styles {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-direction: row;
+    /* デフォルトは画像左、テキスト右 */
+}
+
+/* reverseクラスが付いたセクションのスタイル */
+.eyebrow-styles.reverse {
+    flex-direction: row-reverse;
+    /* テキスト左、画像右 */
+}
+
+/* 画像コンテナのスタイル */
+.eyebrow-style-image {
+    flex: 1;
+}
+
+.eyebrow-style-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    /* 余分なスペースを防ぐ */
+    transition: transform 0.3s ease-in-out;
+}
+
+.eyebrow-style-image img:hover {
+    transform: scale(1.05);
+}
+
+/* テキストコンテナのスタイル */
+.private-space,
+.eyebrow-description,
+.mens-ok {
+    flex: 1;
+}
+
+.private-space h3,
+.private-space p,
+.eyebrow-description p,
+.mens-ok p {
+    margin: 0;
+    font-size: 3.5em;
+    line-height: 1.6;
+    text-decoration: underline;
+}
+
+.private-space h3 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.highlight-relax {
+    background-color: #ffeb3b;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+.highlight-mens {
+    font-weight: bold;
+    color: #d32f2f;
+}
+
+
+.eagle-kanazawa-message {
+    text-align: center;
+    padding: 20px;
+    margin: 20px auto;
+    background-color: antiquewhite;
+}
+
+.eagle-kanazawa-message h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #000;
+    text-decoration: underline;
+}
+
+.eagle-kanazawa-message p {
+    font-size: 2rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.highlight-important {
+    color: #a2a06a;
+    font-weight: bold;
+}
+
+/* フッターのスタイル */
+.eagle-footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #000;
+    color: #fff;
+    font-size: 3rem;
+}
+
+/* レスポンシブデザイン：画面幅768px以下 */
+@media (max-width: 768px) {
+    .h2-fitst {
+        font-size: 5rem;
+    }
+
+    .p-fitst {
+        font-size: 3rem;
+    }
+
+    .h3-fitst {
+        font-size: 2rem;
+    }
+
+    .eyeblow {
+        font-size: 2rem;
+    }
+
+    .eagle-kanazawa-attraction h2 {
+        font-size: 5rem;
+    }
+
+    .eagle-kanazawa-attraction h3 {
+        font-size: 3rem;
+    }
+
+    .eagle-kanazawa-attraction p {
+        font-size: 2rem;
+    }
+
+    .eagle-kanazawa-access h3 {
+        font-size: 3rem;
+    }
+
+    .eagle-kanazawa-access p {
+        font-size: 2rem;
+    }
+
+    .map-text {
+        font-size: 4rem;
+    }
+
+    .eagle-logo {
+        font-size: 2rem;
+    }
+
+    .eagle-kanazawa-message h2 {
+        font-size: 2rem;
+    }
+
+    .eyebrow-styles {
+        flex-direction: column;
+        /* 縦並びに変更 */
+        text-align: center;
+    }
+
+    .eyebrow-style-image,
+    .private-space,
+    .eyebrow-description,
+    .mens-ok {
+        flex: none;
+        width: 100%;
+    }
+
+    .eagle-kanazawa-atmosphere-wrapper {
+        gap: 20px;
+    }
+
+    /* 画像の最大幅を制限 */
+    .eyebrow-style-image img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* フォントサイズの調整 */
+    .eyebrow-styles h3,
+    .eyebrow-styles p {
+        font-size: 1.8rem;
+    }
+
+    /* ホットペッパー口コミリンクのフォントサイズ調整 */
+    .hotpepper-review-link {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .reservation-button {
+        font-size: 3.5rem;
+        padding: 10px 20px;
+    }
+
+    .h2-fitst {
+        font-size: 4rem;
+    }
+
+    .p-fitst {
+        font-size: 2rem;
+    }
+
+    .h3-fitst {
+        font-size: 1.3rem;
+    }
+
+    .eyeblow {
+        font-size: 1.5rem;
+    }
+
+    .eagle-kanazawa-attraction h2 {
+        font-size: 3rem;
+    }
+
+    .eagle-kanazawa-attraction h3 {
+        font-size: 1.8rem;
+    }
+
+    .eagle-kanazawa-attraction p {
+        font-size: 1.5rem;
+    }
+
+    .eagle-kanazawa-access h3 {
+        font-size: 2rem;
+    }
+
+    .eagle-kanazawa-access p {
+        font-size: 1.5rem;
+    }
+
+    .map-text {
+        font-size: 2.5rem;
+    }
+
+    .eagle-logo {
+        font-size: 1.5rem;
+    }
+
+    .eagle-kanazawa-message h2 {
+        font-size: 1.5rem;
+    }
+
+    .eyebrow-styles h3,
+    .eyebrow-styles p {
+        font-size: 1.5rem;
+    }
+
+    .highlight-relax {
+        padding: 1px 2px;
+    }
+
+    .highlight-mens {
+        font-size: 1.5rem;
+    }
+
+    .highlight-important {
+        font-size: 1.5rem;
+    }
+
+    .eagle-footer {
+        font-size: 1.5rem;
+    }
+
+    .photo {
+        border-radius: 10px;
+    }
+
+    /* ホットペッパー口コミリンクのフォントサイズ調整 */
+    .hotpepper-review-link {
+        font-size: 1.5rem;
+    }
+}
+
+/* メインビジュアルにアニメーションのスタイルを追加 */
+.main-visual {
+    animation: fadeIn 3s ease-in-out;
+}
+
+/* フェードインアニメーションの定義 */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* 予約ボタンのホバー時にアニメーションを追加 */
+.reservation-button:hover {
+    animation: bounce 1.5s ease-in-out;
+}
+
+/* バウンスアニメーションの定義 */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-50px);
+    }
+}
+
+/* アニメーション用のスタイル */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 3s ease-out, transform 3s ease-out;
+}
+
+/* スクロールイン時の表示 */
+.animate-on-scroll.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 左からスライドインのスタイル */
+.slide-in-left {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* 右からスライドインのスタイル */
+.slide-in-right {
+    opacity: 0;
+    transform: translateX(100px);
+    transition: opacity 2s ease-out, transform 2s ease-out;
+}
+
+/* スライドインが完了した際のスタイル */
+.slide-in-left.show,
+.slide-in-right.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ズームインのスタイル */
+.zoom-in {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 1.6s ease-out, transform 1.6s ease-out;
+}
+
+/* ズームインが完了した際のスタイル */
+.zoom-in.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ズームアウトのスタイル */
+.zoom-out {
+    opacity: 0;
+    transform: scale(1.2);
+    transition: opacity 1.6s ease-out, transform 1.6s ease-out;
+}
+
+/* ズームアウトが完了した際のスタイル */
+.zoom-out.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* スライドアップ＆フェードインのスタイル */
+.slide-up-fade-in {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+/* スライドアップが完了した際のスタイル */
+.slide-up-fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* フェードインのスタイル */
+.reservation-button {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 3s ease-out, transform 3s ease-out;
+}
+
+.reservation-button.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 新しいアニメーションクラスの定義 */
+
+/* 左からフェードイン */
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in-left.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* 右からフェードイン */
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in-right.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* 上からフェードイン */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in-up.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* スプラッシュ画面全体のスタイル */
+#splash-screen {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom right, #FB7777, #FFD700);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    animation: fadeOut 1s ease-in-out forwards;
+    animation-delay: 3s;
+    overflow: hidden;
+}
+
+/* スクロールを防止するスタイル */
+body.no-scroll {
+    overflow: hidden;
+}
+
+/* スプラッシュ画面のテキストのスタイル */
+.splash-logo-container {
+    text-align: center;
+    animation: textZoomIn 1.5s ease-out, textPulse 3s infinite alternate;
+}
+
+.splash-text {
+    font-family: 'Kaisei Tokumin', serif;
+    font-size: 3rem;
+    color: #ffffff;
+    margin: 0;
+    animation: textSlideIn 1.5s ease-out;
+}
+
+.splash-subtext {
+    font-family: 'Kaisei Opti', serif;
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-top: 10px;
+    opacity: 0;
+    animation: fadeIn 2s ease-out 1.5s forwards;
+}
+
+/* テキストのズームインアニメーション */
+@keyframes textZoomIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* テキストのパルスアニメーション */
+@keyframes textPulse {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.05);
+    }
+}
+
+/* テキストのスライドインアニメーション */
+@keyframes textSlideIn {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* サブテキストのフェードインアニメーション */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* スプラッシュ画面のフェードアウトアニメーション */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* ギャラリー画像のスタイル */
+.photo-gallery {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.photo {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.photo:hover {
+    transform: scale(1.1);
+}

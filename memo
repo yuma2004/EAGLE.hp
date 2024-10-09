@@ -1,0 +1,50 @@
+/* eagle-kanazawa-atmosphere-wrapper: コンテンツを2カラムのグリッドレイアウトで配置するためのCSS */
+.eagle-kanazawa-atmosphere-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2つの均等な幅のカラム */
+    gap: 20px; /* カラムと行の間のスペース */
+    align-items: center;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto; /* ラッパーを中央に配置 */
+}
+
+/* 画像をそれぞれのカラムにぴったり収めるための設定 */
+.eyebrow-style-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* レスポンシブデザイン: 画面が小さくなった場合は1カラムレイアウトに変更 */
+@media (max-width: 768px) {
+    .eagle-kanazawa-atmosphere-wrapper {
+        grid-template-columns: 1fr; /* 1カラムレイアウト */
+        gap: 15px;
+    }
+}
+
+/* eagle-kanazawa-atmosphere内のテキスト要素の追加スタイル */
+.private-space, .eyebrow-description, .mens-ok {
+    text-align: center;
+    color: #333;
+    padding: 10px;
+}
+
+.private-space h3, .mens-ok .highlight-mens {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #1a73e8; /* 重要なテキストの青色のハイライト */
+}
+
+.eyebrow-description p {
+    font-size: 1rem;
+    color: #000;
+}
+
+.mens-ok p {
+    font-size: 0.9rem;
+    margin-top: 5px;
+} /* メンズセクションの追加テキストのスタイル */
