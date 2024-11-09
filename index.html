@@ -1,127 +1,1061 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EAGLE 金沢</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- グーグルフォント  -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Tokumin:wght@400;500;700;800&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inspiration&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inspiration&family=Kaisei+Opti:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>EAGLE フランチャイズ</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Sawarabi+Mincho&family=Permanent+Marker&display=swap"
+        rel="stylesheet">
+    <!-- カスタムスタイル -->
+    <style>
+        /* 全体のフォント設定 */
+        body {
+            font-family: 'Sawarabi Mincho', serif;
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+
+        /* 見出しのフォント設定 */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Sawarabi Mincho', serif;
+        }
+
+        /* アクセントカラー */
+        .accent-text {
+            color: #D4AF37;
+            /* ゴールドカラー */
+        }
+
+        .accent-bg {
+            background-color: #D4AF37;
+            /* ゴールドカラー */
+        }
+
+        /* パステルカラー */
+        .pastel-bg {
+            background-color: #FFE4E1;
+            /* パステルピンク */
+        }
+
+        .pastel-text {
+            color: #FFE4E1;
+            /* パステルピンク */
+        }
+
+        /* 手書き風フォント */
+        .handwriting-font {
+            font-family: 'Permanent Marker', cursive;
+        }
+
+        /* ボタンのスタイル */
+        .custom-button {
+            background-color: #D4AF37;
+            /* ゴールドカラー */
+            color: #FFFFFF;
+            border: 2px solid #D4AF37;
+            transition: background-color 0.5s ease, transform 0.5s ease;
+        }
+
+        .custom-button:hover {
+            background-color: #FFFFFF;
+            color: #D4AF37;
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        /* 装飾的なボーダー */
+        .decorative-border {
+            border: 5px double #D4AF37;
+            padding: 20px;
+        }
+
+        /* ヴィンテージ風の加工効果 */
+        .sepia-filter {
+            filter: sepia(0.6) contrast(1.2) brightness(0.9);
+        }
+
+        .vintage-texture {
+            background-image: url('/vintage-texture.png');
+            background-size: cover;
+            background-repeat: repeat;
+        }
+
+        /* カスタムカラークラス */
+        .bg-gold {
+            background-color: #D4AF37;
+        }
+
+        .border-gold {
+            border-color: #D4AF37;
+        }
+
+        /* ヘッダーの高さ分のマージンを追加 */
+        .mt-header {
+            margin-top: 80px;
+            /* ヘッダーの高さに合わせて調整 */
+        }
+
+        /* ヒーローセクションの調整 */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-section img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            object-fit: cover;
+            animation: slideBackground 60s linear infinite;
+        }
+
+        @keyframes slideBackground {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* ヒーローセクションのコンテンツ配置 */
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 90%;
+            max-width: 1200px;
+            padding: 20px;
+        }
+
+        /* オーバーレイを追加してテキストの可読性を向上 */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+
+        /* ヘッダーのZ-indexを調整 */
+        header {
+            z-index: 1000;
+        }
+
+        /* フェードインアニメーション */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 2.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* ナビゲーションリンクのスタイル */
+        .nav-link {
+            position: relative;
+            color: #000000;
+            text-decoration: none;
+            transition: color 0.5s ease, text-shadow 0.5s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 0;
+            height: 2px;
+            background-color: #D4AF37;
+            transition: width 1s ease;
+        }
+
+        .nav-link:hover {
+            color: #D4AF37;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* スライドイン左から */
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-100px);
+            transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+        }
+
+        .slide-in-left.in-view {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* SVGのストロークアニメーション */
+        .stroke-animation svg path {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: draw 4s forwards;
+        }
+
+        @keyframes draw {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        /* フェードインとズームイン */
+        .fade-zoom-in {
+            opacity: 0;
+            transform: scale(0.8);
+            animation: fadeZoomIn 2s forwards;
+        }
+
+        @keyframes fadeZoomIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* タイピングエフェクト */
+        #typed-text {
+            display: inline;
+        }
+
+        /* テキストのグラデーションアニメーション */
+        .gradient-text {
+            background: linear-gradient(270deg, #ff0080, #ff8c00, #40e0d0);
+            background-size: 600% 600%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientFlow 16s ease infinite;
+        }
+
+        @keyframes gradientFlow {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* 回転フェードインアニメーション */
+        .rotate-fade-in {
+            opacity: 0;
+            transform: rotate(360deg);
+            animation: rotateFadeIn 4s forwards;
+        }
+
+        @keyframes rotateFadeIn {
+            to {
+                opacity: 1;
+                transform: rotate(0deg);
+            }
+        }
+
+        /* スライドイン右から */
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(100px);
+            transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+        }
+
+        .slide-in-right.in-view {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* ボーダー描画アニメーション */
+        .border-draw {
+            position: relative;
+            border: none;
+        }
+
+        .border-draw::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            border: 2px solid #D4AF37;
+            box-sizing: border-box;
+            animation: drawBorder 3s forwards;
+            animation-delay: 1s;
+        }
+
+        @keyframes drawBorder {
+            to {
+                width: 100%;
+            }
+        }
+
+        /* バウンスエフェクト */
+        .bounce {
+            animation: bounce 2s ease-in-out forwards;
+        }
+
+        @keyframes bounce {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* ウェーブアニメーション */
+        .wave-text span {
+            display: inline-block;
+            animation: wave 3s ease-in-out infinite;
+        }
+
+        @keyframes wave {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* ウェーブアニメーションのディレイ設定 */
+        .wave-text span {
+            animation-delay: calc(var(--i) * 0.1s);
+        }
+
+        /* グラデーション背景アニメーション */
+        .gradient-bg-animation {
+            /* background: linear-gradient(270deg, #ff0080, #ff8c00, #40e0d0); */
+            background-size: 600% 600%;
+            animation: gradientBackground 6s ease infinite;
+        }
+
+        @keyframes gradientBackground {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* スプリットアニメーション */
+        .split-text {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .split-left,
+        .split-right {
+            display: inline-block;
+            position: relative;
+            opacity: 0;
+            /* 初期位置を設定 */
+        }
+
+        .split-left {
+            transform: translateX(-100px);
+            transition: transform 2s ease, opacity 2s ease;
+        }
+
+        .split-right {
+            transform: translateX(100px);
+            transition: transform 2s ease, opacity 2s ease;
+        }
+
+        .split-left.in-view,
+        .split-right.in-view {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* 回転インアニメーション */
+        .rotate-in {
+            opacity: 0;
+            transform: rotateY(180deg);
+            transition: opacity 3s ease-out, transform 3s ease-out;
+        }
+
+        .rotate-in.in-view {
+            opacity: 1;
+            transform: rotateY(0deg);
+        }
+
+        /* モバイル対応の調整 */
+        @media (max-width: 767px) {
+            .hero-content {
+                padding: 0 20px;
+            }
+
+            .text-4xl {
+                font-size: 2rem;
+            }
+
+            .text-6xl {
+                font-size: 2.5rem;
+            }
+
+            .text-2xl {
+                font-size: 1.5rem;
+            }
+
+            .text-lg {
+                font-size: 1rem;
+            }
+        }
+
+        /* カスタムホバー効果の追加 */
+        .hover-accent-text:hover {
+            color: #D4AF37;
+        }
+
+        /* FAQアコーディオンのスタイル */
+        .faq-item button {
+            cursor: pointer;
+        }
+
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .faq-item.active .faq-content {
+            max-height: 500px; /* 適切な高さに調整 */
+        }
+    </style>
 </head>
 
-<body>
-
-    <div id="splash-screen">
-        <div class="splash-logo-container">
-            <h1 class="splash-text">EAGLE 金沢</h1>
-            <p class="splash-subtext">美眉を手に入れるチャンス！</p>
+<body class="flex flex-col min-h-screen vintage-texture">
+    <!-- ヘッダー -->
+    <header class="py-4 px-6 fixed top-0 left-0 w-full shadow-md bg-white">
+        <div class="container max-w-7xl mx-auto flex items-center justify-between">
+            <a href="/" class="text-4xl font-bold accent-text handwriting-font">EAGLE</a>
+            <nav class="hidden md:flex space-x-8 fade-in">
+                <a href="#home" class="text-black nav-link">ホーム</a>
+                <a href="#brand-strengths" class="text-black nav-link">ブランドの強み</a>
+                <a href="#benefits" class="text-black nav-link">メリット</a>
+                <a href="#testimonials" class="text-black nav-link">成功事例</a>
+                <a href="#steps" class="text-black nav-link">開業ステップ</a>
+                <a href="#faq" class="text-black nav-link">よくある質問</a>
+            </nav>
+            <button class="custom-button px-6 py-2 rounded-full font-semibold">お問い合わせ</button>
         </div>
-    </div>
+    </header>
 
-    <div class="main-visual">
-        <img src="img/7CB11C6C-7F87-4AA0-8EA0-077247CE0F63.png" alt="Main Visual">
-    </div>
-
-    <div>
-        <button class="reservation-button">今すぐ予約！</button>
-    </div>
-
-    <div>
-        <h2 class="h2-fitst animate-on-scroll">初めての方へ！</h2>
-        <p class="p-fitst animate-on-scroll">美眉を手に入れるチャンス！</p>
-        <h3 class="h3-fitst animate-on-scroll">今ならアイブロウワックスが特別価格2980円!</h3>
-        <p class="eyeblow animate-on-scroll">この機会にHBL公認のトップアイブロウリフトの施術で理想の美眉に！</p>
-        <img class="photo animate-on-scroll" src="img/eye1.png" alt="眉施術のイメージ">
-    </div>
-
-    <div class="eagle-kanazawa-attraction">
-        <h2 class="eagle-logo slide-in-left">EAGLE金沢の魅力</h2>
-        
-        <div class="attraction-point animate-on-scroll">
-            <h3 class="slide-in-right">1. 口コミ4.9以上の人気、実力サロン</h3>
-            <p class="slide-in-right">口コミ4.9以上の評価を受ける実力サロンとして、個々の顔立ちに合わせ、自然で洗練されたアイブロウデザインを提供します。</p>
-            <a href="https://www.hotpepper.jp/your-review-page" class="hotpepper-review-link slide-in-right" target="_blank" rel="noopener noreferrer">ホットペッパーの口コミを見る！</a>
-        </div>
-        
-        <div class="attraction-point animate-on-scroll">
-            <h3 class="slide-in-right">2. 高度な技術力で美眉をデザイン</h3>
-            <p class="slide-in-right">個々の顔立ちに合わせ、自然で洗練されたアイブロウデザインを提供。プロフェッショナルな技術で、理想の眉毛を実現します。</p>
-        </div>
-    </div>
-
-    <div class="main-visual">
-        <img src="img/見出し写真２.png" alt="Main Visual">
-    </div>
-
-    <div class="eagle-kanazawa-access">
-        <h3 class="highlight-access zoom-in">3. 好アクセスのロケーション</h3>
-        <p class="zoom-in">金沢市内中心部に位置し、通いやすい立地が魅力。便利なロケーションで、忙しい方でも気軽に訪れることができます。</p>
-    </div>
-
-    <div class="map-container">
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3204.364910608408!2d136.6170589763723!3d36.569423280673654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff835006a39327b%3A0x8b013d8c529b13d3!2zRGlhbWFudGXnsbPkuLg!5e0!3m2!1sja!2sjp!4v1728213440311!5m2!1sja!2sjp"
-            width="2000" height="800" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
-
-    <div class="eagle-kanazawa-atmosphere-wrapper">
-        <div class="eyebrow-styles zoom-out animate-on-scroll">
-            <div class="eyebrow-style-image">
-                <img src="img/eye2.jpg" alt="眉デザイン例1">
+    <!-- メインコンテンツ -->
+    <main class="flex-grow mt-header">
+        <!-- ヒーローセクション -->
+        <section id="home" class="relative hero-section">
+            <img src="img/スクリーンショット 2024-05-30 17.27.36のコピー.png" alt="ヒーロー画像">
+            <div class="hero-overlay"></div>
+            <div class="hero-content text-center text-white">
+                <h1 class="text-4xl md:text-6xl font-bold accent-text leading-tight mb-6">
+                    <span id="typed-text"></span>
+                </h1>
+                <p class="text-lg md:text-2xl mb-8 gradient-text rotate-fade-in wave-text">
+                    <span style="--i:1;">未</span><span style="--i:2;">経</span><span style="--i:3;">験</span><span
+                        style="--i:4;">か</span><span style="--i:5;">ら</span><span style="--i:6;">で</span><span
+                        style="--i:7;">も</span><span style="--i:8;">始</span><span style="--i:9;">め</span><span
+                        style="--i:10;">ら</span><span style="--i:11;">れ</span><span style="--i:12;">る</span>、
+                    <span style="--i:13;">確</span><span style="--i:14;">か</span><span style="--i:15;">な</span><span
+                        style="--i:16;">実</span><span style="--i:17;">績</span><span style="--i:18;">と</span><span
+                        style="--i:19;">充</span><span style="--i:20;">実</span><span style="--i:21;">し</span><span
+                        style="--i:22;">た</span><span style="--i:23;">サ</span><span style="--i:24;">ポ</span><span
+                        style="--i:25;">ー</span><span style="--i:26;">ト</span><span style="--i:27;">体</span><span
+                        style="--i:28;">制</span><span style="--i:29;">が</span><span style="--i:30;">こ</span><span
+                        style="--i:31;">こ</span><span style="--i:32;">に</span>。
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <button class="custom-button text-lg px-6 py-3 rounded-full font-semibold">
+                        詳細情報のリクエスト
+                    </button>
+                    <button
+                        class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-black text-lg px-6 py-3 rounded-full font-semibold transition-colors duration-300 transform hover:scale-105">
+                        お問い合わせ
+                    </button>
+                </div>
             </div>
-            <div class="private-space">
-                <h3 class="fade-in-left">完全プライベート空間</h3>
-                <p class="fade-in-left"><span class="highlight-relax">リラックス空間</span>で眉毛の施術を堪能♪</p>
-            </div>
-        </div>
+        </section>
 
-        <div class="eyebrow-styles zoom-out animate-on-scroll">
-            <div class="eyebrow-description">
-                <p class="fade-in-right">お客様の顔立ちに合わせた4種類の眉スタイルを提案！</p>
+        <!-- あなたの悩みを解決しますセクション -->
+        <section id="solutions" class="bg-pastel-bg py-24 px-4">
+            <div class="container max-w-7xl mx-auto px-4">
+                <h2 class="text-4xl font-bold text-black text-center mb-16 decorative-border split-text">
+                    <span class="split-left">あなたの</span><span class="split-right">悩みを解決します</span>
+                </h2>
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 space-y-8 mb-12 md:mb-0">
+                        <div class="slide-in-left">
+                            <h3 class="text-2xl font-semibold text-black mb-2">資金面での不安</h3>
+                            <p class="text-black">初期投資や運転資金についてのサポート体制が整っています。安心してフランチャイズを開始できます。</p>
+                        </div>
+                        <div class="slide-in-left">
+                            <h3 class="text-2xl font-semibold text-black mb-2">運営ノウハウの不足</h3>
+                            <p class="text-black">経験豊富なコンサルタントが、日々の運営からマーケティングまで幅広くサポートします。</p>
+                        </div>
+                        <div class="slide-in-left">
+                            <h3 class="text-2xl font-semibold text-black mb-2">スタッフの採用・育成</h3>
+                            <p class="text-black">効果的な採用戦略と充実した研修プログラムで、優秀なスタッフの確保と育成を支援します。</p>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 relative slide-in-right">
+                        <!-- <img src="/img/solutions-image.png" alt="悩み解決イメージ" class="w-full h-auto rounded-lg shadow-2xl"> -->
+                        <!-- <div class="absolute bottom-4 right-4 bg-white p-4 rounded-lg shadow-md">
+                            <p class="text-black font-semibold">総合的なサポート体制</p>
+                        </div> -->
+                    </div>
+                </div>
             </div>
-            <div class="eyebrow-style-image">
-                <img src="img/見本.jpg" alt="平行眉">
+        </section>
+
+        <!-- ブランドの強みセクション -->
+        <section id="brand-strengths" class="bg-white py-24 px-4">
+            <div class="container max-w-7xl mx-auto px-4">
+                <h2
+                    class="text-4xl font-bold text-black text-center mb-16 decorative-border split-text">
+                    <span class="split-left">「EAGLE」ブランドが</span><span class="split-right">選ばれる理由</span>
+                </h2>
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 space-y-8 mb-12 md:mb-0">
+                        <!-- ポイント1 -->
+                        <div class="flex items-center space-x-6 group slide-in-left">
+                            <span
+                                class="text-3xl font-bold accent-text group-hover:scale-110 transition-transform duration-300">01</span>
+                            <div>
+                                <h3 class="text-2xl font-semibold text-black mb-2">卓越した顧客満足度</h3>
+                                <p class="text-black">お客様の95%以上が満足と回答。リピート率80%以上を実現。</p>
+                            </div>
+                        </div>
+                        <!-- ポイント2 -->
+                        <div class="flex items-center space-x-6 group slide-in-left">
+                            <span
+                                class="text-3xl font-bold accent-text group-hover:scale-110 transition-transform duration-300">02</span>
+                            <div>
+                                <h3 class="text-2xl font-semibold text-black mb-2">美容業界での確かな成功実績</h3>
+                                <p class="text-black">20年以上の業界経験とx店舗以上の出店実績。</p>
+                            </div>
+                        </div>
+                        <!-- ポイント3 -->
+                        <div class="flex items-center space-x-6 group slide-in-left">
+                            <span
+                                class="text-3xl font-bold accent-text group-hover:scale-110 transition-transform duration-300">03</span>
+                            <div>
+                                <h3 class="text-2xl font-semibold text-black mb-2">多様で高品質なサービス</h3>
+                                <p class="text-black">最新の美容トレンドを取り入れた幅広いサービスメニュー。</p>
+                            </div>
+                        </div>
+                        <!-- ポイント4 -->
+                        <div class="flex items-center space-x-6 group slide-in-left">
+                            <span
+                                class="text-3xl font-bold accent-text group-hover:scale-110 transition-transform duration-300">04</span>
+                            <div>
+                                <h3 class="text-2xl font-semibold text-black mb-2">安定した収益モデル</h3>
+                                <p class="text-black">平均月商500万円以上、粗利益率60%以上を実現。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 relative slide-in-right">
+                        <img src="/img/見出し写真１.png" alt="EAGLE サロンイメージ" class="w-full h-auto rounded-lg shadow-2xl">
+                        <div class="absolute bottom-4 right-4 bg-white p-4 rounded-lg shadow-md">
+                            <p class="text-black font-semibold">全国x店舗以上の出店実績</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
 
-        <div class="eyebrow-styles zoom-out animate-on-scroll">
-            <div class="eyebrow-style-image">
-                <img src="img/mens.jpg" alt="男性客の施術例">
+        <!-- メリットセクション -->
+        <section id="benefits" class="bg-pastel-bg py-24 px-4">
+            <div class="container max-w-7xl mx-auto px-4">
+                <h2
+                    class="text-4xl font-bold text-black text-center mb-16 decorative-border split-text">
+                    <span class="split-left">フランチャイズパートナーへの</span><span class="split-right">メリット</span>
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- メリット1 -->
+                    <div
+                        class="bg-white p-8 rounded-lg shadow-md transform hover:scale-105 transition-transform duration-500 border-draw">
+                        <div class="stroke-animation">
+                            <svg class="w-16 h-16 accent-text mb-6" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <!-- アイコンのパス -->
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-black mb-4">充実したマーケティング支援</h3>
+                        <p class="text-black mb-4">SEO・MEO対策を基に地域最適化された集客戦略を提供します。オンライン予約システムの導入やSNSマーケティングもサポート。</p>
+                        <ul class="text-black list-disc list-inside">
+                            <li>地域特性に合わせたマーケティングプラン</li>
+                            <li>効果的なオンライン広告戦略</li>
+                            <li>顧客データ分析と活用サポート</li>
+                        </ul>
+                    </div>
+                    <!-- メリット2 -->
+                    <div
+                        class="bg-white p-8 rounded-lg shadow-md transform hover:scale-105 transition-transform duration-500 border-draw">
+                        <div class="stroke-animation">
+                            <svg class="w-16 h-16 accent-text mb-6" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <!-- アイコンのパス -->
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-black mb-4">業務効率化ノウハウ</h3>
+                        <p class="text-black mb-4">最新のツールを活用し、業務オペレーションを最適化します。予約管理から在庫管理まで、効率的な運営をサポート。</p>
+                        <ul class="text-black list-disc list-inside">
+                            <li>クラウドベースの店舗管理システム</li>
+                            <li>スタッフのシフト最適化ツール</li>
+                            <li>自動化された在庫管理システム</li>
+                        </ul>
+                    </div>
+                    <!-- メリット3 -->
+                    <div
+                        class="bg-white p-8 rounded-lg shadow-md transform hover:scale-105 transition-transform duration-500 border-draw">
+                        <div class="stroke-animation">
+                            <svg class="w-16 h-16 accent-text mb-6" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <!-- アイコンのパス -->
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-black mb-4">安心の支援体制</h3>
+                        <p class="text-black mb-4">詳細なマニュアルと開業チェックリストで未経験者もサポート。定期的な研修やコンサルティングで継続的にバックアップ。</p>
+                        <ul class="text-black list-disc list-inside">
+                            <li>開業前の充実したトレーニングプログラム</li>
+                            <li>24時間対応のヘルプデスク</li>
+                            <li>定期的な経営コンサルティング</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="mens-ok">
-                <p class="highlight-mens fade-in-up">Mens OK！</p>
-                <p class="fade-in-up">男女比率3:7で男性にも人気！</p>
+        </section>
+
+        <!-- 成功事例セクション -->
+        <section id="testimonials" class="bg-white py-24 px-4">
+            <div class="container max-w-7xl mx-auto px-4">
+                <h2
+                    class="text-4xl font-bold text-black text-center mb-16 decorative-border split-text">
+                    <span class="split-left">EAGLEオーナー様の</span><span class="split-right">声</span>
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- オーナーの声1 -->
+                    <div class="bg-white p-8 rounded-lg shadow-md gradient-bg-animation">
+                        <div class="flex items-center mb-6">
+                            <img src="/owner1-vintage.jpg" alt="金沢店オーナー" class="w-16 h-16 rounded-full mr-4">
+                            <div>
+                                <h3 class="text-xl font-semibold text-black">金沢店オーナー</h3>
+                                <p class="text-black">開業2年目</p>
+                            </div>
+                        </div>
+                        <p class="text-black mb-4">
+                            フランチャイズに興味はあったものの、未経験で不安でした。しかし、EAGLEのサポートは期待以上でした。詳細なマニュアルとトレーニングのおかげで安心して事業をスタートでき、1年で黒字化を達成しました。
+                        </p>
+                        <div class="flex items-center">
+                            <!-- 星評価 -->
+                            <svg class="w-6 h-6 accent-text" fill="currentColor" viewBox="0 0 20 20">
+                                <polygon points="10 15 4 18 5 12 0 7 6 6 10 0 14 6 20 7 15 12 16 18"></polygon>
+                            </svg>
+                            <svg class="w-6 h-6 accent-text" fill="currentColor" viewBox="0 0 20 20">
+                                <polygon points="10 15 4 18 5 12 0 7 6 6 10 0 14 6 20 7 15 12 16 18"></polygon>
+                            </svg>
+                            <svg class="w-6 h-6 accent-text" fill="currentColor" viewBox="0 0 20 20">
+                                <polygon points="10 15 4 18 5 12 0 7 6 6 10 0 14 6 20 7 15 12 16 18"></polygon>
+                            </svg>
+                            <svg class="w-6 h-6 accent-text" fill="currentColor" viewBox="0 0 20 20">
+                                <polygon points="10 15 4 18 5 12 0 7 6 6 10 0 14 6 20 7 15 12 16 18"></polygon>
+                            </svg>
+                            <svg class="w-6 h-6 accent-text" fill="currentColor" viewBox="0 0 20 20">
+                                <polygon points="10 15 4 18 5 12 0 7 6 6 10 0 14 6 20 7 15 12 16 18"></polygon>
+                            </svg>
+                        </div>
+                    </div>
+                    <!-- 他のオーナーの声を追加する場合は、同様の構造でここに追加 -->
+                </div>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <div>
-        <button class="reservation-button">今すぐ予約！</button>
-    </div>
+        <!-- 成功までの具体的なステップセクション -->
+        <section id="steps" class="bg-white py-24 px-4">
+            <div class="container max-w-7xl mx-auto px-4">
+                <h2
+                    class="text-4xl font-bold text-black text-center mb-16 decorative-border split-text">
+                    <span class="split-left">成功までの</span><span class="split-right">具体的なステップ</span>
+                </h2>
+                <div class="flex flex-col md:grid grid-cols-9 mx-auto p-2">
+                    <!-- ステップ1 -->
+                    <div class="flex md:contents">
+                        <div class="md:col-start-1 md:col-end-5 p-4 my-4 ml-auto text-right rotate-in">
+                            <h3 class="text-2xl font-bold text-black mb-2">Week 1-2</h3>
+                            <p class="text-black">物件選定、行政手続き完了</p>
+                            <ul class="text-black list-disc list-inside mt-2">
+                                <li>最適な立地の選定サポート</li>
+                                <li>必要な許認可の取得支援</li>
+                                <li>店舗設計のアドバイス</li>
+                            </ul>
+                        </div>
+                        <div class="col-start-5 col-end-6 flex justify-center items-center">
+                            <div
+                                class="w-12 h-12 bg-gold border-4 border-gold rounded-full flex items-center justify-center">
+                                <!-- アイコン -->
+                                <svg class="w-6 h-6 accent-text" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <!-- アイコンのパス -->
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                                    </path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="col-start-6 col-end-10"></div>
+                    </div>
+                    <!-- ステップ2 -->
+                    <div class="flex md:contents">
+                        <div class="col-start-1 col-end-5"></div>
+                        <div class="col-start-5 col-end-6 flex justify-center items-center">
+                            <div
+                                class="w-12 h-12 bg-gold border-4 border-gold rounded-full flex items-center justify-center">
+                                <!-- アイコン -->
+                                <svg class="w-6 h-6 accent-text" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <!-- アイコンのパス -->
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zM6 12a2 2 0 11-4 0 2 2 0 014 0z">
+                                    </path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="md:col-start-6 md:col-end-10 p-4 my-4 mr-auto rotate-in">
+                            <h3 class="text-2xl font-bold text-black mb-2">Week 3-4</h3>
+                            <p class="text-black">内装準備、スタッフ採用、初期研修実施</p>
+                            <ul class="text-black list-disc list-inside mt-2">
+                                <li>EAGLEブランドに沿った内装デザイン</li>
+                                <li>効果的な採用戦略の提供</li>
+                                <li>充実した初期研修プログラム</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- ステップ3 -->
+                    <div class="flex md:contents">
+                        <div class="md:col-start-1 md:col-end-5 p-4 my-4 ml-auto text-right rotate-in">
+                            <h3 class="text-2xl font-bold text-black mb-2">Week 5-6</h3>
+                            <p class="text-black">プレオープン、事前マーケティング実施</p>
+                            <ul class="text-black list-disc list-inside mt-2">
+                                <li>ソフトオープンイベントの企画</li>
+                                <li>地域特性に合わせた広告戦略</li>
+                                <li>SNSを活用したプロモーション</li>
+                            </ul>
+                        </div>
+                        <div class="col-start-5 col-end-6 flex justify-center items-center">
+                            <div
+                                class="w-12 h-12 bg-gold border-4 border-gold rounded-full flex items-center justify-center">
+                                <!-- アイコン -->
+                                <svg class="w-6 h-6 accent-text" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <!-- アイコンのパス -->
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2H6a2 2 0 00-2 2v2m4 6h.01M4 20h16a2 2 0 002-2V8a2 2 0 00-2-2H4a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                    </path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="col-start-6 col-end-10"></div>
+                    </div>
+                    <!-- ステップ4 -->
+                    <div class="flex md:contents">
+                        <div class="col-start-1 col-end-5"></div>
+                        <div class="col-start-5 col-end-6 flex justify-center items-center">
+                            <div
+                                class="w-12 h-12 bg-gold border-4 border-gold rounded-full flex items-center justify-center">
+                                <!-- アイコン -->
+                                <svg class="w-6 h-6 accent-text" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <!-- アイコンのパス -->
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12l2 2 4-4M7.5 4.5a5 5 0 0110 0v15a5 5 0 01-10 0v-15z">
+                                    </path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="md:col-start-6 md:col-end-10 p-4 my-4 mr-auto rotate-in">
+                            <h3 class="text-2xl font-bold text-black mb-2">Week 7</h3>
+                            <p class="text-black">グランドオープン！</p>
+                            <ul class="text-black list-disc list-inside mt-2">
+                                <li>オープニングイベントの実施</li>
+                                <li>メディア向けプレスリリース</li>
+                                <li>継続的な運営サポート開始</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <div class="eagle-kanazawa-message">
-        <h2 class="slide-up-fade-in">イーグル 金沢(EAGLE)からの一言</h2>
-        <p class="slide-up-fade-in">アイブロウサロンとして2023年11月にオープン♪<br>
-            眉毛はお顔の印象を決める<strong class="highlight-important">重要なパーツ！</strong><br>
-            薄い・濃い・左右差が気になる…など眉毛のお悩みはぜひご相談ください。</p>
-    </div>
+        <!-- FAQセクション -->
+        <section id="faq" class="bg-white py-24 px-4">
+            <div class="container max-w-7xl mx-auto px-4">
+                <h2
+                    class="text-4xl font-bold text-black text-center mb-16 decorative-border split-text">
+                    <span class="split-left">よくある</span><span class="split-right">質問</span>
+                </h2>
+                <div class="max-w-3xl mx-auto space-y-6">
+                    <!-- FAQ1 -->
+                    <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                        <button class="w-full flex items-center justify-between p-6 focus:outline-none">
+                            <span class="text-lg font-semibold text-black">美容業界未経験ですが、大丈夫ですか？</span>
+                            <svg class="w-6 h-6 accent-text transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <!-- アイコンのパス -->
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-content p-6 bg-white">
+                            <p class="text-black">
+                                はい、未経験の方でも安心してスタートできます。EAGLEでは、充実した研修プログラムと詳細なマニュアルを用意しています。また、経験豊富なスーパーバイザーが開業後もサポートしますので、安心して運営に専念できます。
+                            </p>
+                        </div>
+                    </div>
+                    <!-- FAQ2 -->
+                    <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                        <button class="w-full flex items-center justify-between p-6 focus:outline-none">
+                            <span class="text-lg font-semibold text-black">開業にどのくらい時間がかかりますか？</span>
+                            <svg class="w-6 h-6 accent-text transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <!-- アイコンのパス -->
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-content p-6 bg-white">
+                            <p class="text-black">
+                                通常、契約締結から開業まで約2〜3ヶ月程度です。物件の状況や行政手続きの進み具合によって多少前後する場合がありますが、EAGLEの専門チームがスムーズな開業をサポートします。
+                            </p>
+                        </div>
+                    </div>
+                    <!-- FAQ3 -->
+                    <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                        <button class="w-full flex items-center justify-between p-6 focus:outline-none">
+                            <span class="text-lg font-semibold text-black">初期費用が心配です。融資の相談は可能ですか？</span>
+                            <svg class="w-6 h-6 accent-text transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <!-- アイコンのパス -->
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-content p-6 bg-white">
+                            <p class="text-black">
+                                はい、可能です。EAGLEでは、提携金融機関をご紹介しています。また、事業計画の作成から融資申請のサポートまで、経験豊富なコンサルタントがお手伝いします。お気軽にご相談ください。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <footer>
-        <div class="eagle-footer">
-            <p>イーグル金沢店</p>
+        <!-- CTAセクション -->
+        <section id="cta-end" class="bg-gold py-24 px-4">
+            <div class="container max-w-7xl mx-auto px-4 text-center">
+                <h2 class="text-4xl font-bold text-black mb-8">あなたの美容ビジネスの夢、EAGLEが全力でサポートします</h2>
+                <p class="text-xl text-black mb-12 max-w-3xl mx-auto">
+                    今すぐ無料相談を予約して、あなたの可能性を広げましょう。経験豊富なコンサルタントが、あなたの質問にお答えし、成功への道筋を一緒に考えます。
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <button class="custom-button text-lg px-10 py-4 rounded-full font-semibold">
+                        無料相談を予約する
+                    </button>
+                    <button
+                        class="bg-white text-black border-2 border-black hover:bg-gray-100 text-lg px-10 py-4 rounded-full font-semibold transition-colors duration-300 transform hover:scale-105">
+                        資料請求
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- フッター -->
+    <footer class="bg-black text-white py-12 px-4">
+        <div class="container max-w-7xl mx-auto px-4">
+            <div class="flex flex-wrap justify-between items-center">
+                <div class="w-full md:w-1/3 mb-6 md:mb-0">
+                    <a href="/" class="text-3xl font-bold accent-text handwriting-font">EAGLE</a>
+                    <p class="mt-2 text-sm">123 Beauty Street, Tokyo, Japan</p>
+                    <p class="text-sm">Phone: +81 3-1234-5678</p>
+                </div>
+                <nav class="w-full md:w-1/3 mb-6 md:mb-0">
+                    <ul class="flex flex-wrap justify-center md:justify-start">
+                        <li class="mr-6 mb-2">
+                            <a href="#home" class="text-white hover-accent-text transition-colors">ホーム</a>
+                        </li>
+                        <li class="mr-6 mb-2">
+                            <a href="#brand-strengths" class="text-white hover-accent-text transition-colors">ブランドの強み</a>
+                        </li>
+                        <li class="mr-6 mb-2">
+                            <a href="#benefits" class="text-white hover-accent-text transition-colors">メリット</a>
+                        </li>
+                        <li class="mr-6 mb-2">
+                            <a href="#testimonials" class="text-white hover-accent-text transition-colors">成功事例</a>
+                        </li>
+                        <li class="mr-6 mb-2">
+                            <a href="#faq" class="text-white hover-accent-text transition-colors">よくある質問</a>
+                        </li>
+                        <li class="mr-6 mb-2">
+                            <a href="#cta-end" class="text-white hover-accent-text transition-colors">お問い合わせ</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="w-full md:w-1/3 flex justify-center md:justify-end space-x-4">
+                    <a href="#" class="hover-accent-text transition-colors" aria-label="Instagram">
+                        <!-- InstagramアイコンのSVG -->
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M7.75 2h8.5C19.1 2 22 4.9 22 7.75v8.5C22 19.1 19.1 22 16.25 22h-8.5C4.9 22 2 19.1 2 16.25v-8.5C2 4.9 4.9 2 7.75 2zm0 2C5.955 4 4 5.955 4 7.75v8.5C4 18.045 5.955 20 7.75 20h8.5C18.045 20 20 18.045 20 16.25v-8.5C20 5.955 18.045 4 16.25 4h-8.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6zm5.5-.75a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5z">
+                            </path>
+                        </svg>
+                    </a>
+                    <a href="#" class="hover-accent-text transition-colors" aria-label="Facebook">
+                        <!-- FacebookアイコンのSVG -->
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M22 12a10 10 0 10-11.5 9.9v-7h-2v-2.9h2V9.9c0-2 1.2-3.1 3-3.1.9 0 1.8.1 1.8.1v2h-1c-1 0-1.3.6-1.3 1.2v1.5h2.3l-.4 2.9h-1.9v7A10 10 0 0022 12z">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-sm">
+                <p>&copy; 2024 EAGLE フランチャイズ. All rights reserved.</p>
+            </div>
         </div>
     </footer>
-    <script src="index.js"></script>
+
+    <!-- スクリプト -->
+    <script>
+        // タイピングエフェクト
+        document.addEventListener('DOMContentLoaded', function () {
+            var text = '美の追求とビジネス成功を両立する「EAGLE」フランチャイズ';
+            var idx = 0;
+
+            function type() {
+                if (idx < text.length) {
+                    document.getElementById('typed-text').innerHTML += text.charAt(idx);
+                    idx++;
+                    setTimeout(type, 150); // 遅延を増やす
+                }
+            }
+            type();
+        });
+
+        // スクロールトリガーアニメーション
+        document.addEventListener('DOMContentLoaded', function () {
+            var slideInLeftElements = document.querySelectorAll('.slide-in-left');
+            var slideInRightElements = document.querySelectorAll('.slide-in-right');
+            var rotateInElements = document.querySelectorAll('.rotate-in');
+            var splitLeftElements = document.querySelectorAll('.split-left');
+            var splitRightElements = document.querySelectorAll('.split-right');
+
+            var options = {
+                threshold: 0.1,
+                rootMargin: '0px'
+            };
+
+            var observer = new IntersectionObserver(function (entries, observer) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        console.log('in-view added to', entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, options);
+
+            slideInLeftElements.forEach(function (el) {
+                observer.observe(el);
+            });
+
+            slideInRightElements.forEach(function (el) {
+                observer.observe(el);
+            });
+
+            rotateInElements.forEach(function (el) {
+                observer.observe(el);
+            });
+
+            splitLeftElements.forEach(function (el) {
+                observer.observe(el);
+            });
+
+            splitRightElements.forEach(function (el) {
+                observer.observe(el);
+            });
+        });
+
+        // FAQアコーディオン機能
+        document.addEventListener('DOMContentLoaded', function () {
+            var faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(function (item) {
+                var button = item.querySelector('button');
+                button.addEventListener('click', function () {
+                    // Toggle active class
+                    item.classList.toggle('active');
+
+                    // Rotate the SVG icon
+                    var svg = button.querySelector('svg');
+                    if (item.classList.contains('active')) {
+                        svg.style.transform = 'rotate(180deg)';
+                    } else {
+                        svg.style.transform = 'rotate(0deg)';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
